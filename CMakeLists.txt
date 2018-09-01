@@ -8,3 +8,6 @@ add_executable(lv2-plugin-checker
 pkg_check_modules(LILV "lilv-0")
 target_include_directories(lv2-plugin-checker PRIVATE "${LILV_INCLUDE_DIRS}")
 target_link_libraries(lv2-plugin-checker PRIVATE "${LILV_LIBRARIES}")
+
+find_package(Threads REQUIRED)
+target_link_libraries(lv2-plugin-checker PRIVATE "${CMAKE_THREAD_LIBS_INIT}")
